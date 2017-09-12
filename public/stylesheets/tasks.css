@@ -1,0 +1,126 @@
+.task-box{
+	-webkit-box-shadow: inset 0px 0px 15px 3px rgba(0, 7%, 91%, 0.45) !important;
+	-moz-box-shadow: inset 0px 0px 15px 3px hsla(0, 7%, 91%, 0.45) !important;
+	box-shadow: inset 0px 0px 15px 3px rgba(0, 7%, 91%, 0.45) !important;
+	border-radius: 10px;
+	background:#fff;
+	min-height:300px;
+	box-sizing: border-box;
+	border:1px solid #f3f3f3;
+    padding:5px
+}
+
+
+.task-box small{
+	padding-bottom:10px;
+}
+
+.task{
+    float: left;
+    font-family: 'Source Code Pro', monospace;
+    color: #999999;
+    margin-bottom: 5px;
+	width: 100%;
+	padding:0px;
+	box-sizing: border-box;
+}
+
+.move {
+	height:22px;
+	border:1px solid #fff;
+	line-height: 0px !important;
+	margin:0px !important
+}
+
+.move i {    
+	line-height: 20px;
+	background:#fff !important; 
+	padding:0px;
+	margin-right:5px;
+	height:22px !important;}
+
+.task-code{
+	padding:0px 2px !important;
+	box-sizing: border-box;
+	border-radius: 3px;
+	text-align: center;
+
+}
+
+.task-name{
+	margin: 0px !important;
+	padding: 4px !important;
+	height: 22px !important;
+	border: 2px solid #f1f1f1 !important;
+	box-sizing: border-box
+}
+.task-name:focus{
+	border: 2px solid #ff5252 !important;
+}
+
+.update-buttons{
+	height:40px;
+	line-height: 0px !important;
+	margin:0px !important;
+	padding:0px;
+	background: #fff;
+	text-align: center;
+	border-radius: 3px;
+}
+
+.update-buttons form {
+    width: 5px;
+    margin: 0;
+    display: inline-block;
+}
+.task-btn {background:#fff !important; padding:0px;margin-right:5px;height:22px !important;line-height: 0px;}
+
+.edit-task i {color:#3670bc}
+.check-task i {color:#21b384}
+.delete-task i {color:#ff5252}
+
+/* =========== form =========== */
+
+
+
+.task-form {
+    width:100%;
+    padding:10px 0px;
+}
+
+.task-form .form-group{
+	width:100%;
+}
+
+.task-form input[type="text"]{
+	width:60% !important;
+	display: block;
+	float:left;
+	height:40px;
+	margin: 0px;
+	margin-right:1%;
+}
+
+.task-form select{
+	width:8%;
+	float:left;
+	display: block;
+	height:40px;
+	background:#000;
+	margin-right:1%;
+}
+
+
+.task-form button{
+	width:20%;
+	color:#fff;
+	background: #ff5252;
+	text-align: center;
+	float:left;
+	height:40px;
+
+}
+
+.task-form button:hover{
+	background: #db2929;
+}

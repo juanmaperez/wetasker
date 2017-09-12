@@ -1,0 +1,22 @@
+<div class="login">
+    <div class="login-main-body">
+        <h1>WeTasker</h1>
+        <span class="lead">Useful tools enviroment to organize task and improve your productivity.</span><br>
+        <span class="lead"> Do what you can't.  </span>
+
+        <div class="box-form">
+
+            <h3>Login</h3>
+            <small>Need an account? <a href="/signup">signup</a></small>
+            <form id="signup-form" method="post" action="/">
+                <input type="text" name="username" id="username" placeholder="username" />
+                <input type="password" name="password" id="password" placeholder="password" />
+                <input type="submit" value="Login" />
+            </form>
+            <% if (typeof message != "undefined") { %>
+                <div class="error-message"><%= message %></div>
+            <% } %>
+
+        </div>
+    </div>
+</div>

@@ -1,0 +1,72 @@
+<body>
+        <div class="container container-fluid board dashboard">
+            <div class="row">
+                <div class="menu col-sm-12">
+                    <nav class="row logo-bar">
+                        <div class="col-xs-12 col-sm-12">
+                            <h3 class="logotype">WeTasker</h3>
+                        </div>
+                    </nav>
+                    <div class="logout-bar col-xs-12 col-sm-12">
+                            <span>Hola <%= user.username %></span> 
+                            &nbsp;<a href="/logout"><i class="fa fa-sign-out"></i></a>
+                    </div>
+                xzczxc
+                    <div class="main-menu list-menu col-xs-12 col-sm-12">
+                        <a class="menu-icon col-xs-12 col-md-1 col-sm-1" href="/dashboard"><i class="fa fa-home"></i></a>                                                    
+                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1" href="dashboard/tasks"><i class="fa fa-check-circle-o"></i> </a>                        
+                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1 active" href="dashboard/projects"><i class="fa fa-tasks"></i> </a>
+                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1" href="dashboard/calendar"><i class="fa fa-calendar"></i></a>
+                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1" href="dashboard/preferences"><i class="fa fa-user"></i> </a>
+                    </div>
+                    <div class="project-list col-xs-12 col-sm-12 col-md-12">
+                            <% if(projects.length > 0){
+                                projects.forEach((project)=>{ %>
+                
+                                    <div class="unique-project row">
+                                            
+                                        <div class="col-sm-1 col-xs-1 col-md-1 project-color">
+                                            <i style="color:<%= project.color %>"class="fa fa-circle"></i> 
+                                        </div>
+                                        <div class="col-xs-8 col-sm-8 col-md-8">
+                                            <input id="<%= project._id %>" class="project-name " name ="name" type="text" value="<%= project.name %>">
+                                        </div>
+                                        <div class="update-buttons col-xs-2 col-sm-2 col-md-2">
+                                            <form method="post" action="/dashboard/projects/delete/<%= project._id %>">
+                                                    <button class="delete-btn" type="submit" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                            </form>
+                                        </div>
+                
+                                        
+                
+                                    </div>
+                                <%  })
+                            } else { %> 
+                                <p>No hay projectos todavía</p>
+                            <% } %>
+                    </div>
+
+                    <div class="project-form col-xs-12 col-sm-12 col-md-12">
+                            <form method="post" action="/dashboard/projects/new">
+                                <input class="project-color-input col-xs-1 col-sm-1 col-md-1" type="color" name="color" value="#ff5252">
+                                <input class="project-name-input col-xs-7 col-sm-7 col-md-7" type="text" name="name" placeholder="Type your new project"> 
+                    
+                                <button class="col-xs-3 col-sm-3 col-md-3 project-button btn btn-default" type="submit" >Add Project</button>
+                                
+                            </form>
+                        </div>
+                    
+                </div>
+            </div>
+    
+        </div>
+
+        <div class="popup popup-success">
+            <i class="success fa fa-check-circle-o"></i>
+            <p class="success">Success!</p>
+        </div>
+        <div class="popup popup-error">
+            <i class="handle-error fa fa-minus-circle"></i>
+            <p class="handle-error">Error!</p>            
+        </div>
+    </body>
