@@ -121,15 +121,19 @@ taskRoutes.post('/uncheck', ensureAuthenticated, (req , res, next)=>{
 });
 
 taskRoutes.post('/delete/:id', ensureAuthenticated, (req,res,next)=>{
+  const projectID = req.body.projectID;
   const taskID = req.params.id;
-  console.log(taskID);
-  Task.findByIdAndRemove(taskID, (err, task)=>{
-      if(err){
-          next(err);
-      }else{
-         return res.redirect('/dashboard/tasks');
-      }
+  
+  Project.update(projectID,{ "$pull": { "_tasks": taskID  } }, (error, project)=>{
+    Task.findByIdAndRemove(taskID, (err, task)=>{
+        if(err){
+            next(err);
+        }else{
+            return res.redirect('/dashboard/tasks');
+        }
+    })
   })
+
 });
 
 
