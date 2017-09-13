@@ -86,4 +86,51 @@ taskRoutes.post('/update', ensureAuthenticated, (req, res, next)=>{
   })
 })
 
+
+taskRoutes.post('/check', ensureAuthenticated, (req , res, next)=>{
+   
+  Task.findByIdAndUpdate(req.body.taskID, {done : true}, (error, task)=>{
+      if(error){
+          console.log("error")
+          return res.send('dashboard/tasks');                    
+      }
+      if (!task) {
+          return next(new Error('404'));
+      }
+
+      return res.status(200).json({message:'success'})
+      
+  });
+});
+
+
+taskRoutes.post('/uncheck', ensureAuthenticated, (req , res, next)=>{
+   
+  Task.findByIdAndUpdate(req.body.taskID, {done : false}, (error, task)=>{
+      if(error){
+          console.log("error")
+          return res.send('dashboard/tasks');                    
+      }
+      if (!task) {
+          return next(new Error('404'));
+      }
+
+      return res.status(200).json({message:'success'})
+      
+  });
+});
+
+taskRoutes.post('/delete/:id', ensureAuthenticated, (req,res,next)=>{
+  const taskID = req.params.id;
+  console.log(taskID);
+  Task.findByIdAndRemove(taskID, (err, task)=>{
+      if(err){
+          next(err);
+      }else{
+         return res.redirect('/dashboard/tasks');
+      }
+  })
+});
+
+
 module.exports = taskRoutes;

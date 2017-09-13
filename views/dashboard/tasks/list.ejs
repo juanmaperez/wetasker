@@ -34,11 +34,12 @@
                                             <div class="col-sm-12 task">
                                                 <div class="task">
                                                     <div class="move col-xs-1 col-sm-1 col-md-1"><i class="fa fa-arrows" aria-hidden="true"></i></div>
-                                                    <strong class="task-code col-xs-1 col-sm-1 col-md-1" style="border:1px solid #ff5252;color:#ff5252"><%= task.project %></strong>  
+                                                    <strong class="task-code col-xs-1 col-sm-1 col-md-1" style="border:1px solid <%= project.color %>;color:<%= project.color %>"><%= task.project %></strong>  
                                                     <input id="<%= task._id %>" class="<% if(task.done === true){%>line-through<% }%> task-name col-xs-8 col-sm-8 col-md-8" name ="taskname" type="text" value="<%= task.name %>">
                                                     <div class="update-buttons col-xs-2 col-sm-2 col-md-2">
-                                                        <button class="task-btn check-task" data-taskID="<%= task._id %>" data-taskName="<%= task.name %>"><i class="fa fa-check" aria-hidden="true"></i></button>
+                                                        <button class="task-btn check-task <% if(task.done === true){%> done <% } else { %> undone <% } %>" data-taskID="<%= task._id %>"><i class="fa fa-check" aria-hidden="true"></i></button>
                                                         <form method="post" action="/dashboard/tasks/delete/<%= task._id %>">
+                                                            <input type="hidden" value="<%= project._id %>">
                                                                 <button class="task-btn delete-task" type="submit" ><i class="fa fa-trash" aria-hidden="true"></i></button>
                                                         </form>
                                                     </div>
@@ -88,5 +89,13 @@
         <div class="popup popup-error">
             <i class="handle-error fa fa-minus-circle"></i>
             <p class="handle-error">Error!</p>            
+        </div>
+        <div class="popup popup-done">
+            <i class="success fa fa-check-circle-o"></i>
+            <p class="success">Task Done!</p>
+        </div>
+        <div class="popup popup-undone">
+            <i class="handle-error fa fa-minus-circle"></i>
+            <p class="handle-error">Task Undone!</p>            
         </div>
     </body>

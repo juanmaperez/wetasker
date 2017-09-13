@@ -59,7 +59,7 @@
 }
 
 .update-buttons{
-	height:40px;
+	height:20px;
 	line-height: 0px !important;
 	margin:0px !important;
 	padding:0px;
@@ -124,3 +124,6 @@
 .task-form button:hover{
 	background: #db2929;
 }
+
+
+.line-through{text-decoration:line-through !important;}
