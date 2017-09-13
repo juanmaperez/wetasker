@@ -14,10 +14,10 @@
                 
                     <div class="main-menu list-menu col-xs-12 col-sm-12">
                         <a class="menu-icon col-xs-12 col-md-1 col-sm-1" href="/dashboard"><i class="fa fa-home"></i></a>                                                    
-                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1 active" href="dashboard/tasks"><i class="fa fa-check-circle-o"></i> </a>                        
-                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1" href="dashboard/projects"><i class="fa fa-tasks"></i> </a>
-                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1" href="dashboard/calendar"><i class="fa fa-calendar"></i></a>
-                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1" href="dashboard/preferences"><i class="fa fa-user"></i> </a>
+                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1 active" href="tasks"><i class="fa fa-check-circle-o"></i> </a>                        
+                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1" href="projects"><i class="fa fa-tasks"></i> </a>
+                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1" href="calendar"><i class="fa fa-calendar"></i></a>
+                        <a class="menu-icon col-xs-1 col-md-1 col-sm-1" href="preferences"><i class="fa fa-user"></i> </a>
                     </div>
                     <div class="project-list col-xs-12 col-sm-12 col-md-12">
                         <% 
@@ -27,30 +27,37 @@
                         for(i=1; i<=4; i++){ %>    
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 task-box">
                                 <small style="display:block;color:<%= priorityColor[i-1] %>;width:100%; text-align:center">Tareas para <%= priority[i-1] %></small>
+                                <div class="sortable">
+                                        
                                 <% projects.forEach((project) => { %>
                                     <% project._tasks.forEach((task)=>{ %>
                                         <% if(task.priority == i){ %>
-
                                             <div class="col-sm-12 task">
-                                                <div class="task">
-                                                    <div class="move col-xs-1 col-sm-1 col-md-1"><i class="fa fa-arrows" aria-hidden="true"></i></div>
-                                                    <strong class="task-code col-xs-1 col-sm-1 col-md-1" style="border:1px solid <%= project.color %>;color:<%= project.color %>"><%= task.project %></strong>  
-                                                    <input id="<%= task._id %>" class="<% if(task.done === true){%>line-through<% }%> task-name col-xs-8 col-sm-8 col-md-8" name ="taskname" type="text" value="<%= task.name %>">
-                                                    <div class="update-buttons col-xs-2 col-sm-2 col-md-2">
-                                                        <button class="task-btn check-task <% if(task.done === true){%> done <% } else { %> undone <% } %>" data-taskID="<%= task._id %>"><i class="fa fa-check" aria-hidden="true"></i></button>
-                                                        <form method="post" action="/dashboard/tasks/delete/<%= task._id %>">
-                                                            <input name="projectID" type="hidden" value="<%= project._id %>">
-                                                                <button class="task-btn delete-task" type="submit" ><i class="fa fa-trash" aria-hidden="true"></i></button>
-                                                        </form>
-                                                    </div>
+                                                <div class="move col-xs-1 col-sm-1 col-md-1">
+                                                    <i class="fa fa-arrows" aria-hidden="true"></i>
+                                                </div>
+                                                <strong class="task-code col-xs-1 col-sm-1 col-md-1" style="border:1px solid <%= project.color %>;color:<%= project.color %>"><%= task.project %></strong>  
+                                                <input id="<%= task._id %>" class="<% if(task.done === true){%>line-through<% }%> task-name col-xs-8 col-sm-8 col-md-8" name ="taskname" type="text" value="<%= task.name %>">
+                                                <div class="update-buttons col-xs-2 col-sm-2 col-md-2">
+                                                    <button class="task-btn check-task <% if(task.done === true){%> done <% } else { %> undone <% } %>" data-taskID="<%= task._id %>">
+                                                        <i class="fa fa-check" aria-hidden="true"></i>
+                                                    </button>
+                                                    <form method="post" action="/dashboard/tasks/delete/<%= task._id %>">
+                                                        <input name="projectID" type="hidden" value="<%= project._id %>">
+                                                            <button class="task-btn delete-task" type="submit" >
+                                                                <i class="fa fa-trash" aria-hidden="true"></i>
+                                                            </button>
+                                                    </form>
                                                 </div>
                                             </div>
-
                                         <% } %>
                                     
                                     <% }) %>
 
                                 <% }) %>
+                                
+                                </div>
+                            
                             </div>
                         <% } %>
                     </div>
@@ -90,12 +97,5 @@
             <i class="handle-error fa fa-minus-circle"></i>
             <p class="handle-error">Error!</p>            
         </div>
-        <div class="popup popup-done">
-            <i class="success fa fa-check-circle-o"></i>
-            <p class="success">Task Done!</p>
-        </div>
-        <div class="popup popup-undone">
-            <i class="handle-error fa fa-minus-circle"></i>
-            <p class="handle-error">Task Undone!</p>            
-        </div>
+      
     </body>

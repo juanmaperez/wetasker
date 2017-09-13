@@ -64,4 +64,12 @@ $(document).ready(function(){
         console.log(data.taskID);
     });
 
+    $( function() {
+        $( ".sortable" ).sortable({
+          connectWith: "div",
+          placeholder: 'line-dotted'
+        });
+    
+    } );
+  
 })

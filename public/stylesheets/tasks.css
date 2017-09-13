@@ -15,6 +15,11 @@
 	padding-bottom:10px;
 }
 
+.task-box .sortable{
+	width:100%;
+	min-height:50px;
+}
+
 .task{
     float: left;
     font-family: 'Source Code Pro', monospace;
@@ -127,3 +132,11 @@
 
 
 .line-through{text-decoration:line-through !important;}
+.line-dotted {
+	width:100%;
+	height:20px;
+	display: block;
+	border: 1px dotted #3670bc;
+	background-color:#3670bc;
+	opacity: 0.5
+}
