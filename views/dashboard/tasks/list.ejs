@@ -27,12 +27,12 @@
                         for(i=1; i<=4; i++){ %>    
                             <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12 task-box">
                                 <small style="display:block;color:<%= priorityColor[i-1] %>;width:100%; text-align:center">Tareas para <%= priority[i-1] %></small>
-                                <div class="sortable">
+                                <div class="sortable" data-priority="<%= i %>">
                                         
                                 <% projects.forEach((project) => { %>
                                     <% project._tasks.forEach((task)=>{ %>
                                         <% if(task.priority == i){ %>
-                                            <div class="col-sm-12 task">
+                                            <div id="<%= task._id %>" class="col-sm-12 task" data-priority="<%= i %>">
                                                 <div class="move col-xs-1 col-sm-1 col-md-1">
                                                     <i class="fa fa-arrows" aria-hidden="true"></i>
                                                 </div>

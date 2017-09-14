@@ -66,8 +66,39 @@ $(document).ready(function(){
 
     $( function() {
         $( ".sortable" ).sortable({
-          connectWith: "div",
-          placeholder: 'line-dotted'
+            connectWith: "div",
+            placeholder: 'line-dotted',
+            receive: (e, ui)=>{
+                const itemID = $(ui.item).attr('id');
+                const itemPriotity = $(ui.item).attr('data-priority');
+                const boxPriority = $(ui.item).parent().attr('data-priority');
+
+                if(itemPriotity !== boxPriority){
+                    let data = {};
+                    
+                    data.taskID = itemID;
+                    data.taskPriority = boxPriority;
+
+                    $.ajax({
+                        method:  'POST',
+                        url:     'http://localhost:3000/dashboard/tasks/update-priority',
+                        // The data key is for sending data in a POST, PUT or PATCH!
+                        data:    data,
+                        success: (response)=> {
+                            $('.popup-success').show('slow', function(){
+                                $('.popup-success').fadeOut('3000'); 
+                            })
+                            console.log(response.message)
+                        },
+                        error:   (error) => {
+                            $('.popup-error').show('slow', function(){
+                                $('.popup-error').fadeOut('3000'); 
+                            })
+                        }
+                    });
+                }
+                
+            },
         });
     
     } );

@@ -137,4 +137,20 @@ taskRoutes.post('/delete/:id', ensureAuthenticated, (req,res,next)=>{
 });
 
 
+taskRoutes.post('/update-priority', ensureAuthenticated,(req, res, next)=>{
+  Task.findByIdAndUpdate(req.body.taskID, {priority : req.body.taskPriority}, (error, task)=>{
+    if(error){
+        console.log("error")
+        return res.send('dasboard/tasks');                    
+    }
+    if (!task) {
+        return next(new Error('404'));
+    }
+  
+    return res.status(200).json({message:'success'})
+    
+  })
+})
+
+
 module.exports = taskRoutes;
