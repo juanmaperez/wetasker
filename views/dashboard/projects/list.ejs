@@ -31,14 +31,13 @@
                                             <input id="<%= project._id %>" class="project-name " name ="name" type="text" value="<%= project.name %>">
                                         </div>
                                         <div class="update-buttons col-xs-2 col-sm-2 col-md-2">
-                                            <form method="post" action="/dashboard/projects/delete/<%= project._id %>">
+                                            <form class="delete-project" data-tasks="<%= project._tasks.length %>" method="post" action="/dashboard/projects/delete/<%= project._id %>">
                                                     <button class="delete-btn" type="submit" ><i class="fa fa-trash" aria-hidden="true"></i></button>
                                             </form>
                                         </div>
                 
-                                        
-                
                                     </div>
+
                                 <%  })
                             } else { %> 
                                 <p>No hay projectos todavía</p>
@@ -67,5 +66,13 @@
         <div class="popup popup-error">
             <i class="handle-error fa fa-minus-circle"></i>
             <p class="handle-error">Error!</p>            
+        </div>
+        <div class="popup popup-advice">
+            <i class="advice fa fa-exclamation-triangle"></i>
+            <p class="advice-alert">You have task related to this project</p> 
+            <p>Continue?</p>
+            <button class="btn btn-alert stop">Cancel</button>    
+            <button class="btn btn-success continue"> Continue</button>         
+            
         </div>
     </body>

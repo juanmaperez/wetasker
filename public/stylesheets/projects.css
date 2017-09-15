@@ -114,13 +114,17 @@
 
 .popup i.success{color: #5FA55F}
 .popup i.handle-error{color:#ff5252}
+.popup .advice {color:#DB8851}
 .popup p {
     width:100%;
-    font-size:24px;
+    font-size:20px;
     text-align: center;
     margin:10px 0px
 }
     
+.popup p.advice-alert {
+    font-size:16px
+}
     
 
 

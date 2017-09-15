@@ -26,5 +26,26 @@ $(document).ready(function(){
           
     })
 
+    $('.delete-project').submit(function(){
+        e.preventDefault()
+        const tasks = $(this).attr('data-tasks')
+        if(tasks > 0){
+            $('.popup-advice').fadeIn('slow', function(){
+                $('.continue').click(()=>{
+                    return true
+                })
+                $('.stop').click(()=>{
+                    $('.popup-advice').fadeOut('slow');
+                    return false;
+                    
+                })
+                
+            })
+       }else{
+           console.log('hola')
+           return true
+       }
+    })
+
    
 });    

@@ -1,10 +1,16 @@
+.task-list{
+    margin:10px 0px;
+    padding:0px;
+}
+
+
 .task-box{
 	-webkit-box-shadow: inset 0px 0px 15px 3px rgba(0, 7%, 91%, 0.45) !important;
 	-moz-box-shadow: inset 0px 0px 15px 3px hsla(0, 7%, 91%, 0.45) !important;
 	box-shadow: inset 0px 0px 15px 3px rgba(0, 7%, 91%, 0.45) !important;
 	border-radius: 10px;
 	background:#fff;
-	min-height:300px;
+	min-height:260px;
 	box-sizing: border-box;
 	border:1px solid #f3f3f3;
     padding:5px

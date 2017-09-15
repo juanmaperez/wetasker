@@ -64,6 +64,8 @@ $(document).ready(function(){
         console.log(data.taskID);
     });
 
+    /*---- updating priority -------*/
+
     $( function() {
         $( ".sortable" ).sortable({
             connectWith: "div",
@@ -102,5 +104,7 @@ $(document).ready(function(){
         });
     
     } );
+
+    /*----- end update priority -------*/
   
 })
