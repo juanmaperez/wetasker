@@ -35,7 +35,7 @@ projectRoutes.post('/new', ensureAuthenticated, (req, res , next)=>{
         if (err) {
             res.render('/dashboard/projects/list', { project: newProject });
         } else {
-            res.redirect(`/dashboard/projects/`);
+            res.redirect(`/dashboard/projects`);
         }
     });
 })

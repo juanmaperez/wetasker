@@ -32,7 +32,7 @@
                                         </div>
                                         <div class="update-buttons col-xs-2 col-sm-2 col-md-2">
                                             <form class="delete-project" data-tasks="<%= project._tasks.length %>" method="post" action="/dashboard/projects/delete/<%= project._id %>">
-                                                    <button class="delete-btn" type="submit" ><i class="fa fa-trash" aria-hidden="true"></i></button>
+                                                    <button class="delete-btn" data-tasks="<%= project._tasks.length %>" type="submit" ><i class="fa fa-trash" aria-hidden="true"></i></button>
                                             </form>
                                         </div>
                 
@@ -40,7 +40,10 @@
 
                                 <%  })
                             } else { %> 
+                            <div class="no-projects">
+                                    
                                 <p>No hay projectos todavía</p>
+                            </div>
                             <% } %>
                     </div>
 

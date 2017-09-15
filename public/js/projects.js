@@ -25,27 +25,28 @@ $(document).ready(function(){
         //console.log(data)
           
     })
+    
 
-    $('.delete-project').submit(function(){
-        e.preventDefault()
-        const tasks = $(this).attr('data-tasks')
+    $('.delete-btn').click(function(e){
+        e.preventDefault();
+        const tasks = $(this).attr('data-tasks');
         if(tasks > 0){
             $('.popup-advice').fadeIn('slow', function(){
-                $('.continue').click(()=>{
-                    return true
+                $('.continue').click(function(){
+                    console.log("hola")
+                    $('.delete-project').submit()
+                                   
                 })
-                $('.stop').click(()=>{
+                $('.stop').click(function(){
                     $('.popup-advice').fadeOut('slow');
                     return false;
                     
                 })
-                
-            })
-       }else{
-           console.log('hola')
-           return true
-       }
+            }) 
+        }else{
+            $('.delete-project').submit()
+        }
     })
-
+    
    
 });    
