@@ -32,7 +32,7 @@
                                 <% projects.forEach((project) => { %>
                                     <% project._tasks.forEach((task)=>{ %>
                                         <% if(task.priority == i){ %>
-                                            <div id="<%= task._id %>" class="col-sm-12 task" data-priority="<%= i %>">
+                                            <div data-taskid="<%= task._id %>" class="col-sm-12 task" data-priority="<%= i %>">
                                                 <div class="move col-xs-1 col-sm-1 col-md-1">
                                                     <i class="fa fa-arrows" aria-hidden="true"></i>
                                                 </div>

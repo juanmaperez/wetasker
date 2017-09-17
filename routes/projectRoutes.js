@@ -61,8 +61,19 @@ projectRoutes.post('/delete/:id', ensureAuthenticated, (req, res, next)=>{
     Project.findByIdAndRemove(req.params.id, (err, project)=>{
         if(err){
             next(err);
-        }else{
-           return res.redirect('/dashboard/projects');
+        } else {
+
+            if(project._tasks.length > 0){
+                
+                Task.remove({"_project": req.params.id}, (error, removed)=>{
+                    if(error){
+                        next(error);
+                    }
+                })
+            }
+       
+            return res.redirect('/dashboard/projects');
+            
         }
     })
 })

@@ -29,13 +29,14 @@ $(document).ready(function(){
 
     $('.delete-btn').click(function(e){
         e.preventDefault();
+        const projectID = $(this).attr('data-projectid');
+        console.log(projectID)
         const tasks = $(this).attr('data-tasks');
         if(tasks > 0){
             $('.popup-advice').fadeIn('slow', function(){
                 $('.continue').click(function(){
-                    console.log("hola")
-                    $('.delete-project').submit()
-                                   
+                    $('.'+projectID).submit();
+                    
                 })
                 $('.stop').click(function(){
                     $('.popup-advice').fadeOut('slow');
@@ -44,9 +45,9 @@ $(document).ready(function(){
                 })
             }) 
         }else{
-            $('.delete-project').submit()
+
+            $('.'+projectID).submit();
         }
     })
     
-   
 });    

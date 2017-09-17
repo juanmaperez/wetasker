@@ -127,6 +127,10 @@
 .popup p.advice-alert {
     font-size:16px
 }
+
+.continue, .stop {
+    margin:3px
+}
     
 
 

@@ -71,7 +71,7 @@ $(document).ready(function(){
             connectWith: "div",
             placeholder: 'line-dotted',
             receive: (e, ui)=>{
-                const itemID = $(ui.item).attr('id');
+                const itemID = $(ui.item).attr('data-taskid');
                 const itemPriotity = $(ui.item).attr('data-priority');
                 const boxPriority = $(ui.item).parent().attr('data-priority');
 
