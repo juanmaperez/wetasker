@@ -17,7 +17,7 @@ function ensureAuthenticated(req, res, next) {
 projectRoutes.get('/', ensureAuthenticated, (req,res, next)=>{
     Project
         .find({"_creator": req.user._id })
-        .populate('taskID')
+        .populate('_tasks')
         .exec((err, projects) => {
         res.render('dashboard/projects/list', {user: req.user, projects});
     });
